@@ -12682,3 +12682,26 @@ zuora:
             example: rest.test
             doc_section: '#step-1-finding-your-zuora-subdomain'
             order: 1
+
+telegram-bot:
+    display_name: Telegram Bot API
+    categories:
+        - communication
+        - messaging
+    auth_mode: API_KEY
+    proxy:
+        base_url: https://api.telegram.org
+        headers:
+            content-type: application/json
+        verification:
+            method: GET
+            endpoints:
+                - /bot${apiKey}/getMe
+    docs: https://docs.nango.dev/integrations/all/telegram-bot
+    credentials:
+        apiKey:
+            type: string
+            title: Bot Token
+            description: Your Telegram Bot Token from @BotFather
+            pattern: '^[0-9]+:[a-zA-Z0-9_-]+$'
+            example: "123456789:ABCdefGHIjklMNOpqrsTUVwxyz"

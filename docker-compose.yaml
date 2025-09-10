@@ -17,9 +17,13 @@ services:
     nango-server:
         # It's recommended to pin the version using the commit hash tag or a version tag
         # https://hub.docker.com/r/nangohq/nango-server/tags
-        image: nangohq/nango-server:hosted
+        #image: nangohq/nango-server:hosted
+        build:
+            context: .
+            dockerfile: Dockerfile
         container_name: nango-server
         platform: linux/amd64
+        command: ["node", "packages/server/dist/server.js"]
         environment:
             - NANGO_ENCRYPTION_KEY
             - NANGO_DB_USER
@@ -34,7 +38,7 @@ services:
             - SERVER_PORT
             - CSP_REPORT_ONLY=true
             - NANGO_SERVER_URL=${NANGO_SERVER_URL:-http://localhost:3003}
-            - NANGO_PUBLIC_SERVER_URL=${NANGO_PUBLIC_SERVER_URL:-http://localhost:3000}
+            - NANGO_PUBLIC_SERVER_URL=${NANGO_PUBLIC_SERVER_URL:-http://localhost:3003}
             - FLAG_AUTH_ENABLED
             - NANGO_DASHBOARD_USERNAME
             - NANGO_DASHBOARD_PASSWORD
@@ -47,6 +51,7 @@ services:
             - FLAG_SERVE_CONNECT_UI=${FLAG_SERVE_CONNECT_UI:-true}
         volumes:
             - './packages/providers/providers.yaml:/app/nango/packages/providers/providers.yaml'
+            - './packages/webapp/public/images:/app/nango/packages/webapp/public/images'
         restart: always
         ports:
             - '${SERVER_PORT:-3003}:${SERVER_PORT:-3003}'
