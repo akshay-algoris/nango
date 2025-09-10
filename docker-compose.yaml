@@ -23,7 +23,7 @@ services:
             dockerfile: Dockerfile
         container_name: nango-server
         platform: linux/amd64
-        command: ["node", "packages/server/dist/server.js"]
+        command: ["./packages/server/entrypoint.sh"]
         environment:
             - NANGO_ENCRYPTION_KEY
             - NANGO_DB_USER
