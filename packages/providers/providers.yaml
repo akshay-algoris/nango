@@ -12705,3 +12705,20 @@ telegram-bot:
             description: Your Telegram Bot Token from @BotFather
             pattern: '^[0-9]+:[a-zA-Z0-9_-]+$'
             example: "123456789:ABCdefGHIjklMNOpqrsTUVwxyz"
+
+
+whatsapp-business-meta:
+  display_name: WhatsApp
+  categories:
+    - communication
+    - messaging
+  auth_mode: OAUTH2
+  authorization_url: https://www.facebook.com/v23.0/dialog/oauth
+  token_url: https://graph.facebook.com/v23.0/oauth/access_token
+  proxy:
+    base_url: https://graph.facebook.com
+  docs: https://developers.facebook.com/docs/whatsapp
+  default_scopes:
+    - whatsapp_business_management
+    - whatsapp_business_messaging
+    - business_management
