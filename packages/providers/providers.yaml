@@ -12743,3 +12743,30 @@ instagram-business-meta:
     - pages_read_engagement
     - business_management
 
+azure-cosmos-db:
+  display_name: Azure Cosmos DB
+  categories:
+    - database
+    - cloud
+  auth_mode: OAUTH2
+  authorization_url: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+  token_url: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  proxy:
+    base_url: https://management.azure.com
+  docs: https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac
+  default_scopes:
+    - https://cosmos.azure.com/.default
+
+azure-storage:
+  display_name: Azure Storage
+  categories:
+    - storage
+    - cloud
+  auth_mode: OAUTH2
+  authorization_url: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+  token_url: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  proxy:
+    base_url: https://storage.azure.com
+  docs: https://learn.microsoft.com/en-us/azure/storage/common/storage-auth-aad
+  default_scopes:
+    - https://storage.azure.com/user_impersonation
