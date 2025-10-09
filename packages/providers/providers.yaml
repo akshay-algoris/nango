@@ -12770,3 +12770,29 @@ azure-storage:
   docs: https://learn.microsoft.com/en-us/azure/storage/common/storage-auth-aad
   default_scopes:
     - https://storage.azure.com/user_impersonation
+
+serpapi:
+    display_name: SerpApi
+    categories:
+        - data
+        - search
+    auth_mode: API_KEY
+    proxy:
+        base_url: https://serpapi.com
+        query:
+            api_key: ${apiKey}
+        verification:
+            method: GET
+            endpoints:
+                - /account
+    docs: https://docs.nango.dev/integrations/all/serpapi
+    docs_connect: https://docs.nango.dev/integrations/all/serpapi/connect
+    credentials:
+        apiKey:
+            type: string
+            title: API Key
+            description: Your SerpApi API Key
+            secret: true
+            pattern: '^[a-f0-9]{64}$'
+            example: 1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b
+            doc_section: '#step-1-retrieve-your-serpapi-api-key'
